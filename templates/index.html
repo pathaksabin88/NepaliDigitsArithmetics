@@ -1,6 +1,7 @@
 {% extends 'include/_layout.html' %}
 
 {% block body %}
+
     <form method='post' action="{{ url_for('upload') }}" enctype='multipart/form-data'>
       <div class="form-group">
         <label for="inputImage">Upload Image</label>
