@@ -1,0 +1,15 @@
+{% extends 'include/_layout.html' %}
+{% block body %}
+    <h1>What should be the input?</h1>
+    <p>Input should be an image file of jpeg, jpg and png extensions. Image should be an expression of Nepali digits written on white paper.</p>
+    <figure>
+      <img src="{{ url_for('static',filename='images/sample_input.jpg') }}" height="300px" width="500px">
+      <figcaption>Fig1. - Sample Input Image.</figcaption>
+    </figure>
+    <h1>What will be the output?</h1>
+    <p>Output will also be an image containing the step by step solution of expression in input image.</p>
+    <figure>
+      <img src="{{ url_for('static',filename='images/sample_output.jpg') }}" height="300px" width="500px">
+      <figcaption>Fig2. - Sample Output Image.</figcaption>
+    </figure>
+{% endblock %}

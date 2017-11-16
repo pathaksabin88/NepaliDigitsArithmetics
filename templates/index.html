@@ -1,0 +1,20 @@
+{% extends 'include/_layout.html' %}
+
+{% block body %}
+    <form method='post' action="{{ url_for('upload') }}" enctype='multipart/form-data'>
+      <div class="form-group">
+        <label for="inputImage">Upload Image</label>
+        <input type="file" class="form-control" id="inputImage" name="inputImage">
+      </div>
+      <button type="submit" class="btn btn-primary">Submit</button>
+    </form>
+
+    {% if img is defined %}
+        <br><br>
+        <figure>
+            <img src='{{ img }}' height="300px" width="500px">
+            <figcaption>Fig1. - Input Image.</figcaption>
+        </figure>
+    {% endif %}
+
+{% endblock %}
