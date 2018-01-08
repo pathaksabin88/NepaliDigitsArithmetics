@@ -3,14 +3,22 @@
 <head>
     <meta charset="utf-8">
     <title>Nepali Digits Arithmetic</title>
-    <link rel=stylesheet type=text/css href="{{ url_for('static', filename='css/bootstrap.min.css') }}">
-    <script type="text/javascript" src="{{ url_for('static', filename='js/bootstrap.min.js')}}"></script>
     <script type="text/javascript" src="{{ url_for('static', filename='js/jquery-2.1.1.min.js')}}"></script>
+    <script type="text/javascript" src="{{ url_for('static', filename='js/jquery.js')}}"></script>
+    <script type="text/javascript" src="{{ url_for('static', filename='js/jquery-ui.js')}}"></script>
+    <script type="text/javascript" src="{{ url_for('static', filename='js/bootstrap.min.js')}}"></script>
+    <script type="text/javascript" src="{{ url_for('static', filename='js/jquery.noty.packaged.min.js')}}"></script>
+    <script type="text/javascript" src="{{ url_for('static', filename='js/custom.js')}}"></script>
+    <link rel=stylesheet type=text/css href="{{ url_for('static', filename='css/bootstrap.min.css') }}">
+    <link rel=stylesheet type=text/css href="{{ url_for('static', filename='css/main.css') }}">
 </head>
- <body>
-    {% include 'include/_header.html' %}
-    <div class="container">
-    {% block body  %}{%  endblock %}
+<body>
+    <div id="container">
+        {% include 'include/_header.html' %}
+        <div class="container" id="body">
+            {% block body  %}{%  endblock %}
+        </div>
+        {% include 'include/_footer.html' %}
     </div>
 </body>
 </html>

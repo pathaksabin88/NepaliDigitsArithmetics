@@ -1,21 +1,52 @@
 {% extends 'include/_layout.html' %}
 
 {% block body %}
-
-    <form method='post' action="{{ url_for('upload') }}" enctype='multipart/form-data'>
-      <div class="form-group">
-        <label for="inputImage">Upload Image</label>
-        <input type="file" class="form-control" id="inputImage" name="inputImage">
-      </div>
-      <button type="submit" class="btn btn-primary">Submit</button>
-    </form>
-
-    {% if img is defined %}
-        <br><br>
-        <figure>
-            <img src='{{ img }}' height="300px" width="500px">
-            <figcaption>Fig1. - Input Image.</figcaption>
-        </figure>
+    {% if inputimg is undefined %}
+        <div class="container">
+            <div class="row">
+                <div class="col-md-6 col-md-offset-3">
+                    <div style="text-align: center; margin-top: 10em">
+                        <form method='post' action="{{ url_for('upload') }}" enctype='multipart/form-data' onsubmit="return validateUploadImage()">
+                          <div class="form-group">
+                              <h1><label for="inputImage">Upload An Image</label></h1>
+                              <input type="file" class="form-control" id="inputImage" name="inputImage" aria-describedby="helpBlock">
+                              <span id="helpBlock" class="help-block">Image with white background and jpg, png or jpeg format..</span>
+                          </div>
+                          <button type="submit" class="btn btn-primary btn-success">Submit</button>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
     {% endif %}
-
+    {% if inputimg is defined %}
+        <div class="row">
+            {% if out is defined %}
+                <div class="col-md-3 col-md-offset-9">
+                    <form method="post" action="{{ url_for('completeSolution') }}">
+                        <input type="submit" value="Go For Complete Solution" class="btn btn-large btn-info">
+                    </form>
+                </div>
+                <br>
+                <hr>
+                <br>
+            {% endif %}
+            <div class="col-md-6">
+             <figure>
+                <img src='{{ url_for('static', filename=inputimg) }}' height="512px" width="512px">
+                <figcaption class="text-center">Fig1. - Input Image.</figcaption>
+             </figure>
+            </div>
+            {% if out is defined %}
+                <div class="col-md-6">
+                    <figure>
+                        <img src='{{ url_for('static', filename=out)}}' height="512px" width="512px">
+                        <figcaption class="text-center">Fig2. - Output Image.</figcaption>
+                    </figure>
+                </div>
+             {% endif %}
+          </div>
+        <br>
+        <br>
+    {% endif %}
 {% endblock %}

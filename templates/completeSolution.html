@@ -1,0 +1,121 @@
+{% extends 'include/_layout.html' %}
+
+{% block body %}
+    <div class="row">
+        <div class="col-lg-12">
+            <h1 class="page-header text-center">Input Image</h1>
+        </div>
+        {% if input_images is defined %}
+            {% for input_image in input_images %}
+                <div class="col-md-6 col-md-offset-3">
+                    <figure>
+                        <img class="img-responsive" src="{{ url_for('static', filename='uploadedImages/'+input_image)}}">
+                        <figcaption class="text-center">Input Image</figcaption>
+                    </figure>
+                </div>
+            {% endfor %}
+        {% endif %}
+        {% if input_images is undefined %}
+            <h2 class="text-center text-danger">No Input Image In The Directory</h2>
+        {% endif %}
+    </div>
+    <hr>
+    <div class="row">
+        <div class="col-lg-12">
+            <h1 class="page-header text-center">Processed Images</h1>
+        </div>
+        {% if processed_images is defined %}
+            {% for processed_image in processed_images %}
+                <div class="col-md-6">
+                    <figure>
+                        <img class="img-responsive" src="{{ url_for('static', filename='processedImages/'+processed_image)}}">
+                        <figcaption class="text-center">{{ processed_image }}</figcaption>
+                    </figure>
+                <br>
+                </div>
+            {% endfor %}
+        {% endif %}
+        {% if processed_images is undefined %}
+            <h2 class="text-center text-danger">No Processed Images In The Directory</h2>
+        {% endif %}
+    </div>
+    <hr>
+    <div class="row">
+        <div class="col-lg-12">
+            <h1 class="page-header text-center">Segmented Images</h1>
+        </div>
+        {% if segmented_images is defined %}
+            {% for segmented_image in segmented_images %}
+                <div class="col-md-6">
+                    <figure>
+                        <img class="img-responsive" src="{{ url_for('static', filename='segmentedImages/'+segmented_image)}}">
+                        <figcaption class="text-center">{{ segmented_image }}</figcaption>
+                    </figure>
+                </div>
+            {% endfor %}
+        {% endif %}
+        {% if segmented_images is undefined %}
+            <h2 class="text-center text-danger">No Segmented Images In The Directory</h2>
+        {% endif %}
+    </div>
+    <hr>
+    <div class="row">
+        <div class="col-lg-12">
+            <h1 class="page-header text-center">Digit Segmented Images</h1>
+        </div>
+        {% if digit_segmented_images is defined %}
+            {% for digit_segmented_image in digit_segmented_images %}
+                <div class="col-md-3">
+                    <figure>
+                        <img class="img-responsive" src="{{ url_for('static', filename='digitSegmentedImages/'+digit_segmented_image)}}">
+                        <figcaption class="text-center">{{ digit_segmented_image }}</figcaption>
+                    </figure>
+                </div>
+            {% endfor %}
+        {% endif %}
+        {% if digit_segmented_images is undefined %}
+            <h2 class="text-center text-danger">No Digit Segmented Images In The Directory</h2>
+        {% endif %}
+    </div>
+     <hr>
+    <div class="row">
+        <div class="col-lg-12">
+            <h1 class="page-header text-center">Re-Sized Digit Segmented Images</h1>
+        </div>
+        {% if digit_segmented_images is defined %}
+            {% for digit_segmented_image in digit_segmented_images %}
+                <div class="col-md-2">
+                    <figure>
+                        <img class="img-responsive" src="{{ url_for('static', filename='digitSegmentedImages/'+digit_segmented_image)}}" style="height: 100px; width: 100px;">
+{#                        <figcaption class="text-center">{{ digit_segmented_image }}</figcaption>#}
+                    </figure>
+                <br>
+                </div>
+            {% endfor %}
+        {% endif %}
+        {% if digit_segmented_images is undefined %}
+            <h2 class="text-center text-danger">No Digit Segmented Images In The Directory</h2>
+        {% endif %}
+    </div>
+    <hr>
+    <div class="row">
+        <div class="col-lg-12">
+            <h1 class="page-header text-center">Output Images</h1>
+        </div>
+        {% if output_images is defined %}
+            {% for output_image in output_images %}
+                <div class="col-md-6">
+                    <figure>
+                        <img class="img-responsive" src="{{ url_for('static', filename='outputImages/'+output_image)}}">
+                        <figcaption class="text-center">{{ output_image }}</figcaption>
+                    </figure>
+                <br>
+                </div>
+            {% endfor %}
+        {% endif %}
+        {% if output_images is undefined %}
+            <h2 class="text-center text-danger">No Output Images In The Directory</h2>
+        {% endif %}
+    </div>
+    <br>
+{% endblock %}
